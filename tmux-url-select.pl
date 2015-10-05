@@ -9,8 +9,26 @@ use warnings;
 
 ### config
 
-use constant COMMAND => 'xdg-open %s';
-use constant YANK_COMMAND => 'echo %s | xclip -i';
+my $COMMAND;
+my $YANK_COMMAND;
+
+#fuck you perl
+#if ($^O eq "darwin") {
+  ##use constant COMMAND => 'open %s';
+  ##use constant YANK_COMMAND => 'echo %s | pbcopy';
+  #my $COMMAND = 'open %s';
+  #my $YANK_COMMAND = 'echo %s | pbcopy';
+#} else {
+  ##use constant COMMAND => 'xdg-open %s';
+  ##use constant YANK_COMMAND => 'echo %s | xclip -i';
+  #my $COMMAND = 'xdg-open %s';
+  #my $YANK_COMMAND = 'echo %s | xclip -i';
+#}
+
+use constant COMMAND => 'open %s';
+use constant YANK_COMMAND => 'echo %s | pbcopy';
+#use constant COMMAND => 'xdg-open %s';
+#use constant YANK_COMMAND => 'echo %s | xclip -i';
 
 use constant SHOW_STATUS_BAR => 1;
 use constant VERBOSE_MESSAGES => 0;
